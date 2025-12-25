@@ -1,0 +1,17 @@
+{
+  "name": "beast-mode-website",
+  "version": "1.0.0",
+  "description": "BEAST MODE - AI Development Platform Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve .",
+    "build": "echo 'Static site - no build needed'",
+    "start": "serve ."
+  },
+  "keywords": ["ai", "development", "platform", "beast-mode"],
+  "author": "BEAST MODE",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
