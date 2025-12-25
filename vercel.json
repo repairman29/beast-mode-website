@@ -1,33 +1,7 @@
 {
   "version": 2,
-  "name": "beast-mode-landing",
-  "buildCommand": "echo 'Static site ready'",
+  "buildCommand": "echo 'Static HTML site - no build needed'",
   "outputDirectory": ".",
   "framework": null,
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "regions": ["iad1"],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        }
-      ]
-    }
-  ]
+  "regions": ["iad1"]
 }
