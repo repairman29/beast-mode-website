@@ -1,0 +1,26 @@
+{
+  "name": "beast-mode-website",
+  "version": "1.0.0",
+  "description": "BEAST MODE - Enterprise Quality Intelligence & Marketplace Platform",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'Static site - no build needed'",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.0"
+  },
+  "keywords": [
+    "beast-mode",
+    "enterprise",
+    "ai",
+    "quality",
+    "marketplace"
+  ],
+  "author": "BEAST MODE Team",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "homepage": "https://beast-mode.dev"
+}

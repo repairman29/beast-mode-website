@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEAST MODE - AI-Powered Enterprise Development Platform</title>
+    <meta name="description" content="Transform your development workflow with AI-powered quality intelligence, predictive analytics, and automated team optimization. Used by Fortune 500 companies.">
+    <meta name="keywords" content="AI development platform, code quality, team optimization, predictive analytics, enterprise software, developer tools">
+    <meta name="author" content="BEAST MODE">
+    <meta property="og:title" content="BEAST MODE - AI-Powered Enterprise Development Platform">
+    <meta property="og:description" content="Transform your development workflow with AI-powered quality intelligence and predictive analytics.">
+    <meta property="og:image" content="https://beast-mode.dev/og-image.png">
+    <meta property="og:url" content="https://beast-mode.dev">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="canonical" href="https://beast-mode.dev">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #FFD700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* Main Content */
+        main {
+            padding: 80px 0;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .section .subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Who It's For */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .audience-card {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .audience-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .audience-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .audience-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        /* Demo Section */
+        .demo-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .demo-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .demo-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .demo-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .demo-card .btn {
+            margin-top: 20px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #1a1a1a;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #FFD700;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #f8f9fa;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #764ba2;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 280px;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .audience-grid, .demo-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="logo">BEAST MODE</div>
+            <h1>AI-Powered Development Intelligence Platform</h1>
+            <p class="subtitle">
+                Advanced code analysis, automated testing, and development workflow optimization.
+                Built for modern development teams seeking higher quality and efficiency.
+            </p>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">17</span>
+                    <span class="stat-label">Microservices</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Security Score</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">CLI</span>
+                    <span class="stat-label">Ready</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Open</span>
+                    <span class="stat-label">Source</span>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#demo" class="btn btn-primary">
+                    🚀 Get Started
+                </a>
+                <a href="https://github.com/repairman29/BEAST-MODE" class="btn btn-secondary" target="_blank">
+                    📖 View Source
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is BEAST MODE -->
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2>What is BEAST MODE?</h2>
+                <p class="subtitle">
+                    BEAST MODE is an open-source development intelligence platform that provides
+                    automated code quality analysis, testing frameworks, and development workflow tools.
+                    Built with modern technologies and designed for scalability and reliability.
+                </p>
+
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <span class="audience-icon">🔍</span>
+                        <h3>Code Quality Analysis</h3>
+                        <p>Automated code analysis tools that check for common issues, enforce coding standards,
+                        and provide insights for code improvement. Includes cross-platform compatibility validation.</p>
+                    </div>
+
+                    <div class="audience-card">
+                        <span class="audience-icon">🧪</span>
+                        <h3>Testing Frameworks</h3>
+                        <p>Comprehensive testing utilities and frameworks for JavaScript/TypeScript projects,
+                        including bot simulation, performance tracking, and automated test generation.</p>
+                    </div>
+
+                    <div class="audience-card">
+                        <span class="audience-icon">🔧</span>
+                        <h3>Development Tools</h3>
+                        <p>CLI tools and utilities for development workflow optimization, including project
+                        scaffolding, dependency management, and deployment automation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who It's For -->
+        <section class="section">
+            <div class="container">
+                <h2>Who Uses BEAST MODE?</h2>
+                <p class="subtitle">
+                    Development teams, individual developers, and organizations looking to improve
+                    code quality, testing practices, and development workflows.
+                </p>
+
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <span class="audience-icon">👨‍💻</span>
+                        <h3>Individual Developers</h3>
+                        <p>Improve your coding practices with automated analysis, testing tools,
+                        and development utilities that help maintain high code quality standards.</p>
+                    </div>
+
+                    <div class="audience-card">
+                        <span class="audience-icon">👥</span>
+                        <h3>Development Teams</h3>
+                        <p>Enhance team collaboration with shared tools, automated testing frameworks,
+                        and consistent coding standards across your development projects.</p>
+                    </div>
+
+                    <div class="audience-card">
+                        <span class="audience-icon">🏢</span>
+                        <h3>Organizations & Companies</h3>
+                        <p>Scale development practices with enterprise-ready tools for code quality,
+                        automated testing, and development workflow optimization.</p>
+                    </div>
+
+                    <div class="audience-card">
+                        <span class="audience-icon">🎓</span>
+                        <h3>Open Source Contributors</h3>
+                        <p>Contribute to and benefit from a growing ecosystem of development tools,
+                        testing frameworks, and code quality utilities built by the community.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section">
+            <div class="container">
+                <h2>How BEAST MODE Works</h2>
+                <p class="subtitle">
+                    Get started in minutes with our simple, powerful platform that integrates
+                    seamlessly into your existing development workflow.
+                </p>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Install & Configure</h3>
+                        <p>Install BEAST MODE via npm and configure your project settings.
+                        Our CLI guides you through the entire setup process in under 5 minutes.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>AI Analysis Begins</h3>
+                        <p>Our AI engines immediately start analyzing your codebase, identifying
+                        patterns, potential issues, and optimization opportunities.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Automated Optimization</h3>
+                        <p>Receive intelligent recommendations, automated fixes, and predictive
+                        insights that continuously improve your development workflow.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Scale & Integrate</h3>
+                        <p>Expand across your organization with enterprise integrations,
+                        team analytics, and marketplace plugins for unlimited growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Try BEAST MODE -->
+        <section class="demo-section" id="demo">
+            <div class="container">
+                <h2>Try BEAST MODE Today</h2>
+                <p class="subtitle">
+                    Get started with BEAST MODE's development tools. Install via npm and explore
+                    the available commands and utilities for your development workflow.
+                </p>
+
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <span class="demo-icon">📦</span>
+                        <h3>Install BEAST MODE</h3>
+                        <p>Get started by installing BEAST MODE globally via npm.
+                        Access powerful CLI tools for code analysis and development workflow optimization.</p>
+                        <a href="https://www.npmjs.com/package/@beast-mode/quality" class="btn btn-primary" target="_blank">📦 Install via NPM</a>
+                    </div>
+
+                    <div class="demo-card">
+                        <span class="demo-icon">🐙</span>
+                        <h3>Explore the Codebase</h3>
+                        <p>Browse the complete BEAST MODE source code on GitHub. See how the
+                        microservices are structured and contribute to the development.</p>
+                        <a href="https://github.com/repairman29/BEAST-MODE" class="btn btn-primary" target="_blank">🐙 View on GitHub</a>
+                    </div>
+
+                    <div class="demo-card">
+                        <span class="demo-icon">🛠️</span>
+                        <h3>CLI Tools</h3>
+                        <p>Explore the command-line interface with various tools for code quality,
+                        testing, and development workflow management.</p>
+                        <a href="#demo" class="btn btn-primary">🛠️ Try CLI Commands</a>
+                    </div>
+
+                    <div class="demo-card">
+                        <span class="demo-icon">🔧</span>
+                        <h3>Development Services</h3>
+                        <p>Access the suite of development services including AI assistance,
+                        code generation, and automated testing frameworks.</p>
+                        <a href="#demo" class="btn btn-primary">🔧 Explore Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>BEAST MODE Features</h2>
+                <p class="subtitle">
+                    Core capabilities and tools available in the BEAST MODE platform.
+                </p>
+
+                <div class="testimonial-grid">
+                    <div class="testimonial">
+                        <p class="testimonial-text">
+                            Code analysis utilities for automated quality checking,
+                            cross-platform compatibility validation, and standards enforcement.
+                        </p>
+                        <p class="testimonial-author">Code Quality Tools</p>
+                        <p class="testimonial-role">Quality Assurance</p>
+                    </div>
+
+                    <div class="testimonial">
+                        <p class="testimonial-text">
+                            Testing frameworks including bot simulation services,
+                            performance tracking utilities, and automated test generation.
+                        </p>
+                        <p class="testimonial-author">Testing Framework</p>
+                        <p class="testimonial-role">Quality Assurance</p>
+                    </div>
+
+                    <div class="testimonial">
+                        <p class="testimonial-text">
+                            CLI tools and development utilities for workflow optimization,
+                            project scaffolding, and consistent development practices.
+                        </p>
+                        <p class="testimonial-author">Development Tools</p>
+                        <p class="testimonial-role">Developer Experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/repairman29/BEAST-MODE" target="_blank">🐙 GitHub</a>
+                <a href="https://www.npmjs.com/package/@beast-mode/quality" target="_blank">📦 NPM</a>
+                <a href="#demo">🎮 Live Demo</a>
+                <a href="mailto:enterprise@beast-mode.dev">📧 Enterprise Contact</a>
+                <a href="https://beast-mode.dev/docs" target="_blank">📚 Documentation</a>
+            </div>
+
+            <p class="copyright">
+                © 2025 BEAST MODE. Enterprise Quality Intelligence & Marketplace Platform.<br>
+                All rights reserved. Built for the future of software development.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive demo functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards and sections
+            document.querySelectorAll('.audience-card, .demo-card, .testimonial, .step').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Track demo interactions
+            document.querySelectorAll('.demo-card .btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const demoType = this.previousElementSibling.previousElementSibling.textContent;
+                    console.log('BEAST MODE Demo:', demoType);
+
+                    // Show appropriate demo information
+                    if (demoType.includes('CLI')) {
+                        alert(`🛠️ BEAST MODE CLI Demo\n\nTry these commands after installation:\n\n• beast-mode --help (show all commands)\n• beast-mode quality:check (analyze code)\n• beast-mode marketplace:init (setup marketplace)\n\nCheck our GitHub README for complete documentation!`);
+                    } else if (demoType.includes('Services')) {
+                        alert(`🔧 BEAST MODE Services\n\nAvailable microservices:\n\n• AI Assistant (oracle-standalone)\n• Code Generation (code-generation-standalone)\n• Testing Framework (bot-simulation-service)\n• Analytics Platform (analytics-platform-standalone)\n\nSee our repository for service details!`);
+                    } else {
+                        alert(`📦 BEAST MODE ${demoType}\n\n${demoType} is part of our open-source development platform.\n\n• Install: npm install -g @beast-mode/quality\n• Repository: https://github.com/repairman29/BEAST-MODE\n• Documentation: Available in repository README\n\nGet started with BEAST MODE today!`);
+                    }
+                });
+            });
+
+            // Hero CTA tracking
+            document.querySelectorAll('.hero .btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const action = this.textContent.includes('Try Live Demo') ? 'demo_request' : 'github_visit';
+                    console.log('BEAST MODE Hero CTA:', action);
+                });
+            });
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            // Track page load performance
+            if (performance.timing) {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log('BEAST MODE Page Load Time:', loadTime + 'ms');
+            }
+        });
+    </script>
+</body>
+</html>
